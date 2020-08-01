@@ -12,9 +12,10 @@ type Context struct {
 }
 
 type reply struct {
-	ErrNo int         `json:"errno"`
-	Msg   string      `json:"msg"`
-	Data  interface{} `json:"data"`
+	ErrNo   int         `json:"errno"`
+	Msg     string      `json:"msg"`
+	TraceID string      `json:"trace_id"`
+	Data    interface{} `json:"data"`
 }
 
 type myTempReader struct{}
@@ -44,9 +45,10 @@ func NewTestContext() *Context {
 // Reply ...
 func (c *Context) Reply(code int, obj interface{}, err Error) {
 	r := &reply{
-		ErrNo: err.No(),
-		Msg:   err.Error(),
-		Data:  obj,
+		ErrNo:   err.No(),
+		Msg:     err.Error(),
+		TraceID: GetTrace(c.Request).TraceID,
+		Data:    obj,
 	}
 	c.Set("err", err)
 	c.JSON(code, r)
