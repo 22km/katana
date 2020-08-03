@@ -40,7 +40,7 @@ func newProject(cmd *cobra.Command, args []string) {
 		return
 	}
 
-	if err := execShell("git", "clone", "--progress", "git@git.github.com:22km/katana-demo.git", args[0]); err != nil {
+	if err := execShell("git", "clone", "--progress", "https://github.com/22km/katana-demo.git", args[0]); err != nil {
 		fmt.Println(err.Error())
 		return
 	}
