@@ -19,6 +19,11 @@ func New(mode string) *Engine {
 	return e
 }
 
+// GinEngine ...
+func (e *Engine) GinEngine() *gin.Engine {
+	return e.engine
+}
+
 // Run ...
 func (e *Engine) Run(port string) error {
 	return e.engine.Run(":" + port)
