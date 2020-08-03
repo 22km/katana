@@ -19,7 +19,7 @@ ktn new module-name
 
 ## 启动服务
 
-[Launch Server](... )
+[Launch Server](https://github.com/22km/katana-demo#launch-server)
 
 ## 最佳实践
 
