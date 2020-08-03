@@ -16,8 +16,6 @@ func New(mode string) *Engine {
 		engine: gin.New(),
 	}
 
-	gin.Logger()
-
 	return e
 }
 
