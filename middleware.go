@@ -45,6 +45,9 @@ func Recorder() MiddlewareFunc {
 
 		// 记录错误信息
 		err, _ := c.Get("err")
+		if err == nil {
+			err = newErr(0, "nil")
+		}
 		bean.Add("errno", err.(Error).No())
 		bean.Add("errmsg", err.(Error).Error())
 		bean.Add("msg", err.(Error).Error())
